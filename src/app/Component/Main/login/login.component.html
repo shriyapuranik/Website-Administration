@@ -1,0 +1,21 @@
+<h1>Login Form</h1>
+<div class="wrapper">
+    <h2 class="danger" *ngIf="isLoginSussess && !submitDisable">{{invalidPasswordCount}} Attempts left</h2>
+    <form [formGroup]="loginDetails" (ngSubmit)="loginSubmit(loginDetails.value)">
+        <div class="form-group">
+            <label for="">PS Number</label>
+            <input type="text" name="" id="loginpsnumber" class="form-control" formControlName="psnumber">
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="" id="loginpassword" class="form-control" formControlName="password">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Login" class="btn btn-dark" style="width: 100%;" [disabled]="submitDisable">
+        </div>
+        <div>
+            <a class="signInSignUp" (click)="unlockAccount()" *ngIf="submitDisable">UnLock Account</a>
+            <!-- <a class="forgotPassword suSiLink" routerLink="#" routerLinkActiveactive="active">Forgot Password?</a> -->
+        </div>
+    </form>
+</div>

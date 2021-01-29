@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="header">
+        LTI
+        <button class="logOut" (click)="onLogOut()">LogOut</button>
+    </div>
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link *ngFor="let link of links"
+           (click)="activeTab = link"> {{link}} </a>
+      </nav>
+      <!-- && (role !== 'HD' && role !== 'WA') -->
+      <app-user-info *ngIf="activeTab === Tabs.userInfo"></app-user-info>
+      <app-manage-user *ngIf="activeTab === Tabs.manageUser && (role === 'HD' || role === 'WA')"></app-manage-user>
+      <app-manage-user-group *ngIf="activeTab === Tabs.manageUserGroup && role === 'WA'"></app-manage-user-group>
+</div>

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-4">
+    <div *ngFor="let item of userData | keyvalue">
+      <div class="card text-white bg-info mb-3 cardStyle">
+        <div class="card-header">{{item.key}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{item.value}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

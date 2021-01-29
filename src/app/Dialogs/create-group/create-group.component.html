@@ -1,0 +1,46 @@
+<!-- public string GroupId { get; set; }
+public string GroupName { get; set; }
+public string IRequestApproval { get; set; }
+public string ITimeApproval { get; set; } 
+public string LTASubmittion  { get; set; }-->
+<div class="wrapper">
+    <form [formGroup]="CreateGroupDetails" (ngSubmit)="CreateGroupSubmit(CreateGroupDetails.value)">
+        <div class="form-group">
+            <label for="">Group Id</label>
+            <input type="text" name="" id="groupid" class="form-control" formControlName="groupid">
+        </div>
+        <div class="form-group">
+            <label for="">Group Name</label>
+            <input type="text" name="" id="groupname" class="form-control" formControlName="groupname">
+        </div>
+        <div class="form-group">
+            <label for="">ITime Approval</label>
+            <!-- <input type="password" name="" id="ItimeApproval" class="form-control" formControlName="ItimeApproval"> -->
+        
+            <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style" formControlName="ItimeApproval">
+                <mat-button-toggle value="Yes">Yes</mat-button-toggle>
+                <mat-button-toggle value="No">No</mat-button-toggle>
+            </mat-button-toggle-group>
+
+        </div>
+        <div class="form-group">
+            <label for="">IRequest Approval</label>
+            <!-- <input type="password" name="" id="IrequestApproval" class="form-control" formControlName="IrequestApproval"> -->
+            <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style" formControlName="IrequestApproval">
+                <mat-button-toggle value="Yes">Yes</mat-button-toggle>
+                <mat-button-toggle value="No">No</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <div class="form-group">
+            <label for="">LTA Submission</label>
+            <!-- <input type="password" name="" id="LTASubmission" class="form-control" formControlName="LTASubmission"> -->
+            <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style" formControlName="LTASubmission">
+                <mat-button-toggle value="Yes">Yes</mat-button-toggle>
+                <mat-button-toggle value="No">No</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-dark" style="width: 100%;">
+        </div>
+    </form>
+</div>

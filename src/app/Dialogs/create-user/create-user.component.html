@@ -1,0 +1,35 @@
+<div mat-dialog-title>
+    <div id="lblHeading">Create User<i class="fa fa-times-circle pull-right" (click)="onNoClick()"
+        aria-hidden="true"></i></div>
+  </div>
+  <div>
+    <form [formGroup]="regDetails" (ngSubmit)="onSubmit(regDetails.value, regDetails)">
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" name="" id="name" class="form-control" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" name="" id="" class="form-control"  formControlName="email">
+        </div>
+        <!-- <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="" id="" class="form-control"  formControlName="password">
+        </div> -->
+        <div class="form-group">
+            <label for="">Phone Number</label>
+            <input type="number" name="" id="" class="form-control"  formControlName="phonenumber">
+        </div>
+        <div>
+            <label for="">ITime Permission</label>
+            <!-- <mat-button-toggle-group name="fontStyle" value="finance" class="eip-mt-5" aria-label="Font Style"
+                    [formControl]="formGroup.get('chrISActive')">
+                    <mat-button-toggle class="mat-button-toggle-appearance-auto" value="Y"> Active </mat-button-toggle>
+                    <mat-button-toggle class="mat-button-toggle-appearance-auto" value="N"> InActive </mat-button-toggle>
+                </mat-button-toggle-group> -->
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-dark" style="width: 100%;">
+        </div>
+    </form>
+  </div>

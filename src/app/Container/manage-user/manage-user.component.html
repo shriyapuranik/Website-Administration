@@ -1,0 +1,6 @@
+<app-grid [gridData]="userData" [columns]="userDetails" showLockUnlockButton=true
+(lockUnlockClick)="onLockUnlockClick($event)"></app-grid>
+
+<hr>
+<button class="btn btn-primary" (click)="onFindUserClick()" >Find User</button>
+<button class="btn btn-primary" (click)="onCreateUSerClick()">Create New User</button>

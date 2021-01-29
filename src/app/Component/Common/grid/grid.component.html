@@ -1,0 +1,27 @@
+<kendo-grid [data]="gridData" [height]="410" (edit)="editHandler($event)">
+  <kendo-grid-column *ngFor="let column of columns" [field]="column.fieldName" [title]="column.title">
+    <!-- <ng-template *ngIf="column.template" kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        <ng-container [ngTemplateOutlet]="column.template" [ngTemplateOutletContext]="{ $implicit: dataItem, rowIndex: rowIndex}">
+        </ng-container>
+      </ng-template> -->
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem" let-rowIndex="rowIndex"
+      let-columnIndex="columnIndex" *ngIf="column.editable">
+      <mat-button-toggle-group name="fontStyle" value="Permission" aria-label="Font Style"
+        [formControl]="formGroup.get(column.title)">
+        <mat-button-toggle value="Yes"> Yes </mat-button-toggle>
+        <mat-button-toggle value="No"> No </mat-button-toggle>
+      </mat-button-toggle-group>
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+      <label>{{dataItem}}</label>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column title="Action">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      <button class="btn btn-primary" (click)="onEditClick(dataItem, rowIndex)">Edit</button>
+      <button class="btn btn-danger" (click)="onDeleteClick(dataItem, rowIndex)">Delete</button>
+      <button class="btn btn-primary" (click)="onLockUnlockClick(dataItem, rowIndex)"
+        *ngIf="showLockUnlockButton">{{getButtonName(dataItem)}}</button>
+    </ng-template>
+  </kendo-grid-column>
+</kendo-grid>

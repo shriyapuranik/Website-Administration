@@ -1,0 +1,8 @@
+<div>
+    <label>PS No</label>
+    <input type="text" name="psno" id="psno" #psno>
+    <button class="btn btn-primary" (click)="onSearch(psno.value)">Search User</button>
+</div>
+<div *ngIf="userData.length>0">
+    <app-grid [gridData]="userData" [columns]="userDetails"></app-grid>
+</div>
